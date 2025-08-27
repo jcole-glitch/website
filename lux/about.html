@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Luxury Cafe & Restaurant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #0a0a0a;
+            --gold: #D4AF37;
+            --yellowish: #FFD700;
+            --white: #FFFFFF;
+            --gray: #1a1a1a;
+            --light-gray-text: #ccc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--white);
+            background-color: var(--black);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            font-weight: 700;
+        }
+        
+        p {
+            color: var(--light-gray-text);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Header (Same as Homepage) */
+        header {
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo a:hover img {
+            transform: rotate(-10deg);
+        }
+
+        .logo span {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: var(--gold);
+            text-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 35px;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s, text-shadow 0.3s;
+            font-size: 16px;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--yellowish);
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--yellowish);
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+        }
+        
+        nav ul li a:hover::after, nav ul li a.active::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            font-size: 24px;
+            color: var(--white);
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        /* General Page Styles */
+        .btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 14px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            border: 2px solid var(--gold);
+            font-size: 1.1rem;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            display: inline-block;
+            padding-bottom: 15px;
+            position: relative;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 3px;
+            bottom: 0;
+            left: 15%;
+            background-image: linear-gradient(to right, var(--yellowish), var(--gold));
+            border-radius: 2px;
+        }
+
+        /* About Hero Section */
+        .about-hero {
+            height: 60vh;
+            min-height: 400px;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px; /* Offset for fixed header */
+        }
+        
+        .about-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            animation: slideInUp 1s ease forwards;
+            color: var(--white);
+        }
+
+        .about-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            animation: slideInUp 1s ease forwards 0.2s;
+            opacity: 0; /* Initially hidden for animation */
+            animation-fill-mode: forwards;
+        }
+
+        /* Content Section Layout */
+        .about-section {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            opacity: 0; /* Initially hidden for scroll animation */
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .about-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about-section:nth-child(even) {
+             flex-direction: row-reverse;
+        }
+        
+        .about-text, .about-image {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* Chef Profiles Section */
+        .chef-section {
+            background-color: var(--gray);
+        }
+        
+        .chef-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .chef-card {
+            background: var(--black);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s ease;
+            text-align: center;
+        }
+
+        .chef-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.15);
+        }
+
+        .chef-image {
+            height: 350px;
+            overflow: hidden;
+        }
+        
+        .chef-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .chef-card:hover .chef-image img {
+            transform: scale(1.1);
+        }
+        
+        .chef-info {
+            padding: 25px;
+        }
+        
+        .chef-info h3 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            color: var(--yellowish);
+        }
+        
+        .chef-info .title {
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80') no-repeat center center/cover;
+            background-attachment: fixed;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .stat-item i {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        
+        .stat-item .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--white);
+        }
+        
+        .stat-item .label {
+            font-size: 1.2rem;
+            color: var(--light-gray-text);
+        }
+        
+        /* Footer (Same as Homepage) */
+        footer {
+            background-color: var(--gray);
+            padding: 60px 0 30px;
+            border-top: 3px solid var(--gold);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: var(--yellowish);
+        }
+
+        .footer-section p, .footer-section li {
+            color: var(--light-gray-text);
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul i {
+            color: var(--gold);
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 45px;
+            height: 45px;
+            background-color: var(--black);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 45px;
+            color: var(--white);
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--gold);
+            color: var(--black);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #2a2a2a;
+        }
+        
+        .copyright a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-hero h1 { font-size: 2.8rem; }
+            .section-title h2 { font-size: 2.4rem; }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--black);
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 15px 0;
+                text-align: center;
+            }
+
+            .logo span { font-size: 16px; }
+            .logo img { height: 40px; }
+            
+            .about-hero h1 { font-size: 2.2rem; }
+            .about-hero p { font-size: 1rem; }
+
+            .about-section, .about-section:nth-child(even) {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.jpg" alt="Luxury Cafe & Restaurant Logo">
+                    <span>LUXURY CAFE & RESTAURANT</span>
+                </a>
+            </div>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="nav-toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <h1>Our Story of Culinary Excellence</h1>
+            <p>Discover the passion, dedication, and artistry behind Luxury Cafe & Restaurant, where every dish tells a story.</p>
+        </div>
+    </section>
+    
+    <!-- Main Content Section -->
+    <section>
+        <div class="container">
+            <!-- Our Mission -->
+            <div class="about-section">
+                <div class="about-text">
+                    <h3>World-Class Culinary Artists</h3>
+                    <p>At Luxury Cafe, our chefs are not just cooks—they are culinary artists who transform the finest ingredients into masterpieces. Trained in some of the world's most prestigious culinary institutes, our team brings global expertise to your plate.</p>
+                    <p>Each chef specializes in different cuisines, ensuring that every dish—from our gourmet burgers to artisanal pizzas—is prepared with authentic techniques and innovative flair.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Master Chef in the kitchen">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: var(--gray);">
+        <div class="container">
+            <!-- Kitchen Standards -->
+            <div class="about-section">
+                <div class="about-text">
+                    <h3>Impeccable Kitchen Standards</h3>
+                    <p>We believe that exceptional food can only come from an exceptionally clean kitchen. Our culinary space is maintained with the highest standards of hygiene and organization to ensure your food is prepared in the cleanest environment possible.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pristine and modern kitchen">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chef Profiles Section -->
+    <section class="chef-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Meet Our Culinary Masters</h2>
+            </div>
+            <div class="chef-grid">
+                <div class="chef-card">
+                    <div class="chef-image">
+                        <img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Executive Chef Marco Bellini">
+                    </div>
+                    <div class="chef-info">
+                        <h3>Marco Bellini</h3>
+                        <p class="title">Executive Chef</p>
+                        <p>With 15 years of experience in Michelin-starred restaurants, Chef Marco brings innovation and tradition to every dish.</p>
+                    </div>
+                </div>
+                <div class="chef-card">
+                    <div class="chef-image">
+                        <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pastry Chef Sophie Laurent">
+                    </div>
+                    <div class="chef-info">
+                        <h3>Sophie Laurent</h3>
+                        <p class="title">Head Pastry Chef</p>
+                        <p>Trained in Paris, Chef Sophie creates desserts that are visual masterpieces and culinary delights.</p>
+                    </div>
+                </div>
+                <div class="chef-card">
+                    <div class="chef-image">
+                        <img src="https://images.unsplash.com/photo-1607631568262-2c0ffcef4333?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sous Chef James O'Malley">
+                    </div>
+                    <div class="chef-info">
+                        <h3>James O'Malley</h3>
+                        <p class="title">Sous Chef</p>
+                        <p>Specializing in farm-to-table cuisine, Chef James ensures every ingredient is sourced ethically and prepared to perfection.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Excellence in Numbers</h2>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <i class="fas fa-users"></i>
+                    <div class="number">15,000+</div>
+                    <div class="label">Satisfied Customers</div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-utensils"></i>
+                    <div class="number">12</div>
+                    <div class="label">Master Chefs</div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-award"></i>
+                    <div class="number">25</div>
+                    <div class="label">Culinary Awards</div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-star"></i>
+                    <div class="number">4.9</div>
+                    <div class="label">Average Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LUXURY CAFE & RESTAURANT</h3>
+                    <p>Experience the finest dining with our gourmet burgers, artisan pizzas, and handcrafted beverages.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Our Address</h3>
+                     <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Golden Avenue, Luxury City, 54321</li>
+                        <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-envelope"></i> contact@luxurycafe.com</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Opening Hours</h3>
+                    <ul>
+                        <li><i class="fas fa-clock"></i> Mon - Fri: 11am - 10pm</li>
+                        <li><i class="fas fa-clock"></i> Saturday: 10am - 11pm</li>
+                        <li><i class="fas fa-clock"></i> Sunday: 10am - 9pm</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 <a href="index.html">Luxury Cafe & Restaurant</a>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+            const icon = navToggle.querySelector('i');
+            if (navMenu.classList.contains('show')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Animation on scroll
+        function animateOnScroll() {
+            const sectionsToAnimate = document.querySelectorAll('.about-section, .chef-card, .stat-item');
+            
+            sectionsToAnimate.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (sectionTop < windowHeight - 100) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', animateOnScroll);
+        // Initial check in case elements are already in view
+        animateOnScroll();
+    </script>
+</body>
+</html>

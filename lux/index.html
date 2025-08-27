@@ -1,0 +1,1055 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Cafe & Restaurant - Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #0a0a0a;
+            --gold: #D4AF37;
+            --yellowish: #FFD700;
+            --white: #FFFFFF;
+            --gray: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--white);
+            background-color: var(--black);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            font-weight: 700;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1300px; 
+            margin: 0 auto;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes text-glow {
+            0% { text-shadow: 0 0 8px rgba(212, 175, 55, 0.4); }
+            50% { text-shadow: 0 0 16px rgba(212, 175, 55, 0.8); }
+            100% { text-shadow: 0 0 8px rgba(212, 175, 55, 0.4); }
+        }
+
+        @keyframes shimmer-effect {
+            0% { transform: translateX(-150%); }
+            100% { transform: translateX(150%); }
+        }
+
+
+        /* Header */
+        header {
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo a:hover img {
+            transform: rotate(-10deg);
+        }
+        
+        .logo span {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: var(--gold);
+            letter-spacing: 1px;
+            position: relative; 
+            overflow: hidden;
+            animation: text-glow 3s ease-in-out infinite;
+        }
+        
+        .logo span::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(100deg, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 80%);
+            animation: shimmer-effect 4s linear infinite;
+            animation-delay: 2s;
+        }
+
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 35px;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s, text-shadow 0.3s;
+            font-size: 16px;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--yellowish);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a.active {
+            color: var(--yellowish);
+        }
+
+        nav ul li a.active::after {
+           width: 100%;
+        }
+        
+        nav ul li a:hover {
+            color: var(--yellowish);
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            font-size: 24px;
+            color: var(--white);
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('a1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            animation: slideInUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            color: var(--white);
+            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--white);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 14px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            border: 2px solid var(--gold);
+            font-size: 1.1rem;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+          
+        .cafe-logo {
+  font-family: 'Playfair Display', serif; /* main font */
+}
+
+.amp {
+  font-family: 'Great Vibes', cursive; /* decorative font just for & */
+  color: var(--gold);  /* make it stand out */
+  font-size: 1.2em;    /* slightly bigger */
+}
+
+        
+.shiny-gold {
+  font-weight: bold;
+  font-size: clamp(55px, 12vw, 95px); /* better scaling */
+  font-family: 'Playfair Display', serif;
+
+  color: transparent;
+  background: linear-gradient(
+    90deg,
+    #FFD700 0%,
+    #FFFFCC 25%,
+    #FFD700 50%,
+    #FFEC8B 75%,
+    #FFD700 100%
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  text-shadow: 
+    0 0 8px rgba(255, 215, 0, 0.7),
+    0 0 15px rgba(255, 215, 0, 0.6),
+    0 0 25px rgba(255, 215, 0, 0.5),
+    0 0 35px rgba(255, 215, 0, 0.4);
+
+  animation: goldReflection 8s ease-in-out infinite;
+}
+
+@keyframes goldReflection {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+
+
+
+        
+
+        /* Section Base Styles */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            display: inline-block;
+            padding-bottom: 15px;
+            position: relative;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 3px;
+            bottom: 0;
+            left: 15%;
+            background-image: linear-gradient(to right, var(--yellowish), var(--gold));
+            border-radius: 2px;
+        }
+        
+        /* --- MODIFIED: Signature Specials Section --- */
+        #specialties {
+            /* Changed to a semi-transparent solid color for a sleek, modern feel */
+            background-color: rgba(26, 26, 26, 0.95);
+        }
+        
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .specialty-item {
+            background-color: var(--black);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #2a2a2a;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .specialty-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.1);
+        }
+        
+        .specialty-item-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .specialty-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .specialty-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .specialty-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        
+        .specialty-content h3 {
+            font-size: 1.7rem;
+            color: var(--yellowish);
+            margin-bottom: 10px;
+        }
+        
+        .specialty-content p {
+            color: #ccc;
+            flex-grow: 1;
+            margin-bottom: 15px;
+        }
+
+        .specialty-content .price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-top: auto;
+            align-self: flex-start;
+        }
+
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--yellowish);
+            color: var(--black);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            z-index: 2;
+        }
+
+        /* --- Special Offers Section --- */
+        #offers {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1481833761820-0509d3217039?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .offer-item {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background-color: rgba(10, 10, 10, 0.75);
+            backdrop-filter: blur(8px);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: box-shadow 0.3s, border-color 0.3s;
+        }
+        
+        .offer-item:hover {
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+            border-color: var(--gold);
+        }
+
+        .offer-item img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+
+        .offer-content h3 {
+            font-size: 2.2rem;
+            color: var(--yellowish);
+        }
+
+        .offer-content p {
+            color: #ccc;
+            margin: 10px 0 20px;
+            max-width: 500px;
+        }
+
+        .offer-badge {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-top: 15px;
+        }
+        
+        /* --- Gallery Section --- */
+       .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for the top row */
+    gap: 15px;
+}
+
+/* Make bottom 2 images span 2 columns each */
+.gallery-item.bottom-row {
+    grid-column: span 2; 
+}
+
+/* Optional: uniform aspect ratio */
+.gallery-item {
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    aspect-ratio: 4 / 3;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease-out;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1;
+}
+
+.gallery-item .overlay i {
+    font-size: 2.5rem;
+}
+
+
+        /* --- Testimonials Section --- */
+        #testimonials {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1600&q=80') center/cover fixed;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: rgba(26, 26, 26, 0.85);
+            backdrop-filter: blur(8px);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid var(--gold);
+            text-align: center;
+        }
+
+        .testimonial-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid var(--yellowish);
+        }
+        
+        .testimonial-card p {
+            font-style: italic;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-card h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            color: var(--white);
+            font-weight: 600;
+        }
+        
+        .star-rating {
+            margin-top: 10px;
+            color: var(--yellowish);
+        }
+
+        /* Why Choose Us Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .feature-item {
+            padding: 30px;
+            border: 1px solid var(--gray);
+            border-radius: 10px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .feature-item:hover {
+            background-color: var(--gray);
+            border-color: var(--gold);
+        }
+
+        .feature-item i {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+
+        .feature-item:hover i {
+            transform: scale(1.2);
+        }
+
+        .feature-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            color: #ccc;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--gray);
+            padding: 60px 0 30px;
+            border-top: 3px solid var(--gold);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: var(--yellowish);
+        }
+
+        .footer-section p, .footer-section li {
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul i {
+            color: var(--gold);
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 45px;
+            height: 45px;
+            background-color: var(--black);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 45px;
+            color: var(--white);
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--gold);
+            color: var(--black);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+  text-align: center;
+  padding-top: 30px;
+  border-top: 1px solid #2a2a2a;
+  color: #ccc;
+}
+
+.copyright a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.copyright a:hover {
+  text-decoration: underline;
+}
+
+/* Make second line smaller */
+.copyright .company {
+  font-size: 12px;   /* smaller than default */
+  color: #aaa;       /* lighter gray so it looks subtle */
+  margin-top: 5px;
+}
+
+/* Style "BitBros" */
+.copyright .company span {
+  color: var(--gold);   /* professional gold highlight */
+  font-weight: 600;     /* medium boldness */
+  letter-spacing: 0.5px;
+}
+
+        
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .section-title h2 {
+                font-size: 2.4rem;
+            }
+            .offer-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            .specialties-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px; 
+                left: 0;
+                width: 100%;
+                background-color: var(--black);
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 15px 0;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .logo span {
+                font-size: 16px;
+            }
+
+            .logo img {
+                height: 40px;
+            }
+            
+            .specialties-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 12px 28px;
+                font-size: 1rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.jpg" alt="Luxury Cafe & Restaurant Logo">
+                    <span>LUXURY CAFE & RESTAURANT</span>
+                </a>
+            </div>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="nav-toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+  <section class="hero" id="home">
+  <div class="container hero-content">
+      
+    <h1 class="cafe-logo shiny-gold">
+      <span class="reveal">Luxury</span> 
+      <span class="reveal">Cafe</span> 
+      <span class="reveal amp">&amp;</span> 
+      <span class="reveal">Restaurant</span>
+    </h1>
+
+    <h1 class="tagline">Where <span>Luxury</span> Meets Flavor</h1>
+    <p>Indulge in an unforgettable dining experience with our world-class burgers, pizzas, and handcrafted beverages.</p>
+    <a href="menu.html" class="btn">Explore Our Menu</a>
+  </div>
+</section>
+
+    <!-- Signature Specials Section -->
+    <section id="specialties">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Signature Specials</h2>
+            </div>
+            <div class="specialties-grid">
+                <!-- Item 1 -->
+                <div class="specialty-item" style="animation: slideInUp 1s 0.2s backwards;">
+                    <div class="specialty-item-image">
+                        <img src="a5.jpg" alt="Special Burger">
+                    </div>
+                    <div class="specialty-content">
+                        <h3>The Gold Standard Burger</h3>
+                        <p>A juicy Wagyu beef patty with truffle aioli, aged cheddar, and crispy onions on a brioche bun.</p>
+                        <div class="price">449.99 Br</div>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="specialty-item" style="animation: slideInUp 1s 0.3s backwards;">
+                    <div class="specialty-item-image">
+                        <img src="a4.jpg" alt="Special Pizza">
+                    </div>
+                    <div class="specialty-content">
+                        <h3>Spicy Diavola Pizza</h3>
+                        <p>San Marzano tomatoes, fresh mozzarella, spicy salami, and a final drizzle of hot honey.</p>
+                        <div class="price">519.99 Br</div>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="specialty-item" style="animation: slideInUp 1s 0.4s backwards;">
+                    <div class="specialty-item-image">
+                        <img src="a6.jpg" alt="Special Drink">
+                    </div>
+                    <div class="specialty-content">
+                        <h3>Passionfruit Mojito</h3>
+                        <p>A refreshing twist on a classic, with fresh mint, lime, and exotic passionfruit nectar.</p>
+                        <div class="price">379.99 Br</div>
+                    </div>
+                </div>
+                <!-- Item 4 -->
+                 <div class="specialty-item" style="animation: slideInUp 1s 0.5s backwards;">
+                    <div class="specialty-item-image">
+                        <img src="a7.jpg" alt="Gourmet Burger">
+                    </div>
+                    <div class="specialty-content">
+                        <h3>Signature Gourmet Burgers</h3>
+                        <p>Our collection of handcrafted burgers, featuring premium beef and unique flavor combinations.</p>
+                        <div class="price">From 439.99 Br</div>
+                    </div>
+                </div>
+                <!-- Item 5 -->
+                <div class="specialty-item" style="animation: slideInUp 1s 0.6s backwards;">
+                    <div class="specialty-item-image">
+                        <img src="a9.jpg" alt="Artisan Pizzas">
+                    </div>
+                    <div class="specialty-content">
+                        <h3>Authentic Artisan Pizzas</h3>
+                        <p>Wood-fired to perfection, our pizzas boast the finest toppings on a light, airy crust.</p>
+                        <div class="price">From 479.99 Br</div>
+                    </div>
+                </div>
+                <!-- Item 6 -->
+                <div class="specialty-item" style="animation: slideInUp 1s 0.7s backwards;">
+                    <div class="specialty-item-image">
+                         <img src="a8.jpg" alt="Exotic Beverages">
+                    </div>
+                    <div class="specialty-content">
+                        <h3>Curated Exotic Beverages</h3>
+                        <p>Explore our wide range of handcrafted coffees, teas, and signature mocktails.</p>
+                        <div class="price">From 159.99 Br</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers Section -->
+    <section id="offers">
+        <div class="container">
+            <div class="section-title">
+                <h2>Special Offers</h2>
+            </div>
+            <div class="offer-item" style="animation: slideInUp 1s 0.2s backwards;">
+                <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80" alt="Burger Combo Deal">
+                <div class="offer-content">
+                    <h3>The Ultimate Burger Combo</h3>
+                    <p>Get our famous Classic Cheeseburger, a side of golden fries, and a refreshing soft drink for one great price. The perfect satisfying meal!</p>
+                    <div class="price">499.99 Br</div>
+                    <a href="menu.html#combos" class="btn">View Deal</a>
+                </div>
+            </div>
+             <div class="offer-item" style="animation: slideInUp 1s 0.4s backwards;">
+                <img src="s1.jpg" alt="Pizza Combo Deal">
+                <div class="offer-content">
+                    <h3>Pizza Night Special</h3>
+                    <p>Choose any two of our artisan pizzas and get a complimentary appetizer. Perfect for sharing with friends or family.</p>
+                     <div class="offer-badge">Limited Time Offer!</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Gallery</h2>
+            </div>
+            <div class="gallery-grid">
+                <!-- Top row: 4 images -->
+    <div class="gallery-item"><img src="d1.jpg" alt="Image 1"><div class="overlay"><i class="fas fa-search-plus"></i></div></div>
+    <div class="gallery-item"><img src="d2.jpg" alt="Image 2"><div class="overlay"><i class="fas fa-search-plus"></i></div></div>
+    <div class="gallery-item"><img src="d3.jpg" alt="Image 3"><div class="overlay"><i class="fas fa-search-plus"></i></div></div>
+    <div class="gallery-item"><img src="d4.jpg" alt="Image 4"><div class="overlay"><i class="fas fa-search-plus"></i></div></div>
+
+    <!-- Bottom row: 2 images spanning 2 columns each -->
+    <div class="gallery-item bottom-row"><img src="d5.jpg" alt="Image 5"><div class="overlay"><i class="fas fa-search-plus"></i></div></div>
+    <div class="gallery-item bottom-row"><img src="d6.jpg" alt="Image 6"><div class="overlay"><i class="fas fa-search-plus"></i></div></div>
+</div
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Customers Say</h2>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card" style="animation: slideInUp 1s 0.2s backwards;">
+                    <img src="u1.jpg" alt="Customer Jane Doe">
+                    <p>"An absolutely divine experience. The ambiance is chic and the burgers are out of this world. A must-visit!"</p>
+                    <h4>- Daniel G/Egzihaber</h4>
+                    <div class="star-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="testimonial-card" style="animation: slideInUp 1s 0.4s backwards;">
+                    <img src="u2.jpg" alt="Customer John Smith">
+                    <p>"I came for the pizza and was not disappointed. The crust was perfect and the toppings were incredibly fresh. Top-notch service too."</p>
+                    <h4>- Mekdes Yifter</h4>
+                    <div class="star-rating">
+                       <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <div class="testimonial-card" style="animation: slideInUp 1s 0.6s backwards;">
+                    <img src="u3.jpg" alt="Customer Emily White">
+                    <p>"The cocktails are a work of art! Beautifully presented and delicious. A perfect spot for a classy night out."</p>
+                    <h4>- Abenizer Fikadu</h4>
+                    <div class="star-rating">
+                       <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- Why Choose Us Section -->
+<section id="about">
+    <div class="container">
+        <div class="section-title">
+            <h2>Why Choose Us</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-item" style="animation: fadeInUp 0.8s ease forwards; animation-delay: 0.2s;">
+                <i class="fas fa-gem"></i>
+                <h3>Premium Ingredients</h3>
+                <p>We source only the finest, freshest ingredients to craft dishes that are truly exceptional.</p>
+            </div>
+            <div class="feature-item" style="animation: fadeInUp 0.8s ease forwards; animation-delay: 0.4s;">
+                <i class="fas fa-concierge-bell"></i>
+                <h3>Elegant Ambiance</h3>
+                <p>Our luxurious and comfortable setting provides the perfect backdrop for any occasion.</p>
+            </div>
+            <div class="feature-item" style="animation: fadeInUp 0.8s ease forwards; animation-delay: 0.6s;">
+                <i class="fas fa-hand-sparkles"></i>
+                <h3>Expert Craftsmanship</h3>
+                <p>Our chefs and mixologists are masters of their craft, dedicated to culinary perfection.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer id="footer-contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LUXURY CAFE & RESTAURANT</h3>
+                    <p>Experience the finest dining with our gourmet burgers, artisan pizzas, and handcrafted beverages.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Our Address</h3>
+                     <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Golden Avenue, Luxury City, 54321</li>
+                        <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-envelope"></i> contact@luxurycafe.com</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Opening Hours</h3>
+                    <ul>
+                        <li><i class="fas fa-clock"></i> Mon - Fri: 7am - 10pm</li>
+                        <li><i class="fas fa-clock"></i> Saturday: 7am - 11pm</li>
+                        <li><i class="fas fa-clock"></i> Sunday: 7am - 11pm</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+  <p>&copy; 2025 <a href="index.html">Luxury Cafe & Restaurant</a>. All rights reserved.</p>
+  <p class="company">Website crafted with excellence by <span>BitBros</span></p>
+</div>
+        </div>
+    </footer>
+
+    <script>
+        // --- Mobile Navigation Toggle ---
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+            // Change icon to 'X' when menu is open
+            const icon = navToggle.querySelector('i');
+            if (navMenu.classList.contains('show')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    </script>
+</body>
+</html>
